@@ -15,16 +15,18 @@ public class BankingApp {
         //System.out.println(args[0]+","+args[1]);
         //local variable--declared inside the method
         Faker faker=new Faker();
-        Customer customer=new Customer(faker.number().numberBetween(10000,10000),
-                faker.name().firstName(),
-                faker.name().lastName(),
-                faker.name().username(),
-                faker.internet().emailAddress(),
-                faker.phoneNumber().phoneNumber(),
-                faker.internet().password(),
-                null,faker.bool().bool());
-        customer.setPassword(faker.internet().password());
-        System.out.println(customer);
+        for(int i=0;i<100;i++) {
+            Customer customer = new Customer(faker.random().nextInt(10000000, 99999999),
+                    faker.name().firstName(),
+                    faker.name().lastName(),
+                    faker.name().username(),
+                    faker.internet().emailAddress(),
+                    faker.phoneNumber().phoneNumber(),
+                    faker.internet().password(),
+                    null, faker.bool().bool());
+            customer.setPassword(faker.internet().password());
+            System.out.println(customer);
+        }
 
 
     }
