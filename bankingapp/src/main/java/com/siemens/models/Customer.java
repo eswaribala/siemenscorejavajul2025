@@ -1,11 +1,10 @@
 package com.siemens.models;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@ToString
 public class Customer {
     //instance variable-- any variable declared inside the class-- field
     private long accountNumber;
@@ -17,6 +16,5 @@ public class Customer {
     private String password;
     private Address address;
     private boolean active;
-
 
 }
