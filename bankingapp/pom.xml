@@ -32,7 +32,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                                <mainClass>com.siemens.Main</mainClass>
+                                <mainClass>com.siemens.BankingApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
