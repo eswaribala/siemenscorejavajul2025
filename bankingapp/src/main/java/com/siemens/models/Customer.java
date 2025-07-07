@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Customer {
-    private long accountNUmber;
+    //instance variable-- any variable declared inside the class-- field
+    private long accountNumber;
     private String firstName;
     private String lastName;
     private String middleName;
