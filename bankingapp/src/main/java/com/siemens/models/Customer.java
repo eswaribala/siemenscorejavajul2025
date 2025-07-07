@@ -16,4 +16,7 @@ public class Customer {
     private String contactNo;
     private String password;
     private Address address;
+    private boolean active;
+
+
 }

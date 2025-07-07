@@ -3,6 +3,12 @@ package com.siemens;
 import com.github.javafaker.Faker;
 import com.siemens.models.Customer;
 
+/**
+ * @author Parameswari
+ * @version 1.0
+ * @since 07/07/2025
+ */
+
 public class BankingApp {
     public static void main(String[] args) {
 
@@ -17,6 +23,7 @@ public class BankingApp {
         customer.setEmail(faker.internet().emailAddress());
         customer.setContactNo(faker.phoneNumber().phoneNumber());
         customer.setPassword(faker.internet().password());
+        customer.setActive(faker.bool().bool());
 
         System.out.println(customer);
 
