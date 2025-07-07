@@ -1,10 +1,12 @@
 package com.siemens;
 
 import com.github.javafaker.Faker;
+import com.siemens.facades.OTPGenerator;
 import com.siemens.models.BankingAccount;
 import com.siemens.models.Customer;
 
 import java.time.ZoneId;
+import java.util.Comparator;
 
 /**
  * @author Parameswari
@@ -38,12 +40,56 @@ public class BankingApp {
         System.out.println("Rate of Interest"+Customer.getRoi());
 
         //create object for Transaction
-        BankingAccount bankingAccount=new BankingAccount();
-        BankingAccount.Transaction transaction=bankingAccount.new Transaction();
-        transaction.setDateOfTransaction(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        bankingAccount.setAmount(faker.random().nextInt(100000,999999));
+        BankingAccount bankingAccount=new BankingAccount(faker.random().nextInt(100000,999999));
+        BankingAccount.Transaction transaction=bankingAccount.new Transaction(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+
         transaction.showTransactionDetails();
 
+     // anonymous class
+        OTPGenerator otpGenerator=new OTPGenerator(){
+            @Override
+            public int generateOTP() {
+                return faker.random().nextInt(1000,9999);
+            }
+        };
+
+        System.out.println(otpGenerator.generateOTP());
+
+        Customer customer1=  new Customer(
+                faker.name().firstName(),
+                faker.name().lastName(),
+                faker.name().username(),
+                faker.internet().emailAddress(),
+                faker.phoneNumber().phoneNumber(),
+                faker.internet().password(),
+                null, faker.bool().bool());
+        Customer customer2=  new Customer(
+                faker.name().firstName(),
+                faker.name().lastName(),
+                faker.name().username(),
+                faker.internet().emailAddress(),
+                faker.phoneNumber().phoneNumber(),
+                faker.internet().password(),
+                null, faker.bool().bool());
+
+       //anonymous class
+        Comparator comparator=new Comparator<Customer>(){
+            @Override
+            public int compare(Customer o1, Customer o2) {
+                return o1.getFirstName().compareTo(o2.getFirstName());
+            }
+        };
+
+        System.out.println(customer1.getFirstName());
+        System.out.println(customer2.getFirstName());
+        int result=comparator.compare(customer1,customer2);
+        if(result>0){
+            System.out.println("First Name is greater than the second");
+        }else if(result<0){
+            System.out.println("First Name is less than the second");
+        }else {
+            System.out.println("First Name is equal to the second");
+        }
 
 
     }

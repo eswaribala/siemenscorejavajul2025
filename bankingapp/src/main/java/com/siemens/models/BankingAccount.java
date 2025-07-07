@@ -13,12 +13,22 @@ public class BankingAccount {
     @Getter
     private long amount;
 
+
+    public BankingAccount(long amount) {
+        this.amount = amount;
+
+    }
+
     //non static inner class
     public class Transaction{
 
         @Setter
         @Getter
         private LocalDate dateOfTransaction;
+
+        public Transaction(LocalDate dateOfTransaction) {
+            this.dateOfTransaction = dateOfTransaction;
+        }
 
         public void showTransactionDetails(){
             System.out.println("Date of Transaction: "+dateOfTransaction);
