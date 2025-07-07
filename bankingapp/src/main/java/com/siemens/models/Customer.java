@@ -19,5 +19,7 @@ public class Customer {
     @Setter
     private Address address;
     private boolean active;
+    //method area
+    public static float roi;
 
 }

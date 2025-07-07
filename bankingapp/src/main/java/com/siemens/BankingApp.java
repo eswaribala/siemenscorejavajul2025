@@ -16,6 +16,7 @@ public class BankingApp {
         //local variable--declared inside the method
         Faker faker=new Faker();
         for(int i=0;i<100;i++) {
+            //create an object - instance
             Customer customer = new Customer(faker.random().nextInt(10000000, 99999999),
                     faker.name().firstName(),
                     faker.name().lastName(),
@@ -25,6 +26,9 @@ public class BankingApp {
                     faker.internet().password(),
                     null, faker.bool().bool());
             customer.setPassword(faker.internet().password());
+            //static variable
+            Customer.roi=0.07f;
+            System.out.println(Customer.roi);
             System.out.println(customer);
         }
 
