@@ -23,6 +23,7 @@ public class BankingApp {
                 faker.phoneNumber().phoneNumber(),
                 faker.internet().password(),
                 null,faker.bool().bool());
+        customer.setPassword(faker.internet().password());
         System.out.println(customer);
 
 
