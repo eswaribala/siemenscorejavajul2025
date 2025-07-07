@@ -7,8 +7,9 @@ import lombok.*;
 @Getter
 @ToString
 public class Customer {
+    //account no is constant
+    private final long AccountNumber=new Faker().random().nextInt(10000000,99999999);
     //instance variable-- any variable declared inside the class-- field
-    private long accountNumber;
     private String firstName;
     private String lastName;
     private String middleName;
