@@ -27,10 +27,12 @@ public class BankingApp {
                     null, faker.bool().bool());
             customer.setPassword(faker.internet().password());
             //static variable
-            Customer.roi=0.07f;
-            System.out.println(Customer.roi);
+
+
             System.out.println(customer);
         }
+
+        System.out.println("Rate of Interest"+Customer.getRoi());
 
 
     }

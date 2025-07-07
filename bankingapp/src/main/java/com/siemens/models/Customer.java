@@ -1,4 +1,5 @@
 package com.siemens.models;
+import com.github.javafaker.Faker;
 import lombok.*;
 
 @AllArgsConstructor
@@ -20,6 +21,11 @@ public class Customer {
     private Address address;
     private boolean active;
     //method area
-    public static float roi;
+    private static float roi;
+
+    public static float getRoi(){
+        roi=new Faker().random().nextInt(6,13)*0.01f;
+        return roi;
+    }
 
 }
