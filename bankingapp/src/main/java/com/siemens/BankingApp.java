@@ -1,7 +1,10 @@
 package com.siemens;
 
 import com.github.javafaker.Faker;
+import com.siemens.models.BankingAccount;
 import com.siemens.models.Customer;
+
+import java.time.ZoneId;
 
 /**
  * @author Parameswari
@@ -33,6 +36,14 @@ public class BankingApp {
         }
 
         System.out.println("Rate of Interest"+Customer.getRoi());
+
+        //create object for Transaction
+        BankingAccount bankingAccount=new BankingAccount();
+        BankingAccount.Transaction transaction=bankingAccount.new Transaction();
+        transaction.setDateOfTransaction(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        bankingAccount.setAmount(faker.random().nextInt(100000,999999));
+        transaction.showTransactionDetails();
+
 
 
     }
