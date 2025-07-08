@@ -46,7 +46,7 @@ public class InheritanceDemo {
                 faker.phoneNumber().phoneNumber(),
                 faker.internet().password(),
                 null, faker.bool().bool());
-       */
+
         //but anonymous object
         Customer customer = new Customer(){
 
@@ -56,7 +56,7 @@ public class InheritanceDemo {
             }
         };
 
-
+*/
 
         //Individual individual1=customer;
         //System.out.println(individual1);

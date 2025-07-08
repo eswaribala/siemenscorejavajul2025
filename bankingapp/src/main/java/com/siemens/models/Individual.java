@@ -16,8 +16,5 @@ public class Individual extends Customer{
     private LocalDate dob;
     private Gender gender;
 
-    @Override
-    public int generateOTP() {
-        return new Faker().random().nextInt(1000,9999);
-    }
+
 }

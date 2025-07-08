@@ -10,7 +10,7 @@ import java.lang.annotation.Inherited;
 @Getter
 @ToString
 @SuperBuilder
-public abstract class Customer {
+public  class Customer {
     //account no is constant
     protected final long AccountNumber=new Faker().random().nextInt(10000000,99999999);
     //instance variable-- any variable declared inside the class-- field
@@ -33,6 +33,6 @@ public abstract class Customer {
         return roi;
     }
 
-    public abstract int generateOTP();
+    //public abstract int generateOTP();
 
 }
