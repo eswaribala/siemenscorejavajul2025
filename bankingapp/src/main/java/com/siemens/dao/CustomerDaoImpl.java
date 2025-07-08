@@ -56,8 +56,27 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public Customer getCustomer(long accountNumber) {
-        return null;
+    public Customer getCustomer(long accountNumber) throws SQLException {
+        String query=resourceBundle.getString("selectcustomeraccountno");
+        preparedStatement=connection.prepareStatement(query);
+        System.out.println(accountNumber);
+        preparedStatement.setLong(1,accountNumber);
+        resultSet=preparedStatement.executeQuery();
+        resultSet.next();
+        System.out.println(resultSet.getLong("account_number"));
+        Customer customer=new Customer(
+                resultSet.getString("first_name"),
+                resultSet.getString("last_name"),
+                resultSet.getString("middle_name"),
+                resultSet.getString("email"),
+                resultSet.getString("password"),
+                resultSet.getString("contact_no"),
+                null,
+                resultSet.getBoolean("active")
+        );
+        return customer;
+
+
     }
 
     public int getCustomerCount() throws SQLException {

@@ -6,10 +6,12 @@ import com.siemens.facades.CustomerDao;
 import com.siemens.models.Customer;
 
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class CustomerDBApp {
     public static void main(String[] args){
         Faker faker=new Faker();
+        Scanner scanner=new Scanner(System.in);
         try {
             CustomerDao customerDao = new CustomerDaoImpl();
             //insert operation
@@ -27,6 +29,12 @@ public class CustomerDBApp {
               System.out.println("Customer not saved");
           for(Customer c : customerDao.getAllCustomers())
               System.out.println(c);
+
+          System.out.println("Enter account number to fetch customer details:");
+          long accountNumber=scanner.nextLong();
+          scanner.nextLine();
+         System.out.println( customerDao.getCustomer(accountNumber));
+
 
 
         }catch (ClassNotFoundException | SQLException ex){
