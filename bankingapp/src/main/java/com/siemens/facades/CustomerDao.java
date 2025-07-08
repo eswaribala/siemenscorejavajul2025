@@ -10,6 +10,6 @@ public interface CustomerDao {
     Customer updateCustomer(long accountNumber,String email, String password);
     void deleteCustomer(long accountNumber);
     Customer getCustomer(long accountNumber);
-    Customer[] getAllCustomers();
+    Customer[] getAllCustomers() throws SQLException;
 
 }

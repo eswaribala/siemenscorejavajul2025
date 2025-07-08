@@ -4,9 +4,7 @@ import com.siemens.facades.CustomerDao;
 import com.siemens.helpers.MySQLHelper;
 import com.siemens.models.Customer;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class CustomerDaoImpl implements CustomerDao {
@@ -15,6 +13,8 @@ public class CustomerDaoImpl implements CustomerDao {
     private ResourceBundle resourceBundle;
 
     private PreparedStatement preparedStatement;
+    private ResultSet resultSet;
+    private Statement statement;
 
     public CustomerDaoImpl() throws SQLException, ClassNotFoundException {
         connection = MySQLHelper.getConnection();
@@ -60,8 +60,41 @@ public class CustomerDaoImpl implements CustomerDao {
         return null;
     }
 
+    public int getCustomerCount() throws SQLException {
+        int count=0;
+        String query=resourceBundle.getString("selectallcustomers");
+        statement=connection.createStatement();
+        resultSet= statement.executeQuery(query);
+        while(resultSet.next()){
+            count++;
+        }
+        return count;
+    }
+
     @Override
-    public Customer[] getAllCustomers() {
-        return new Customer[0];
+    public Customer[] getAllCustomers() throws SQLException {
+        String query=resourceBundle.getString("selectallcustomers");
+       int count=getCustomerCount();
+       System.out.println("Total rows: "+count);
+       Customer[] customers=new Customer[count];
+       int i=0;
+        statement=connection.createStatement();
+        resultSet= statement.executeQuery(query);
+       while(resultSet.next()){
+           customers[i]=new Customer(
+                   resultSet.getString("first_name"),
+                   resultSet.getString("last_name"),
+                   resultSet.getString("middle_name"),
+                   resultSet.getString("email"),
+                   resultSet.getString("password"),
+                   resultSet.getString("contact_no"),
+                   null,
+                   resultSet.getBoolean("active")
+           );
+           //System.out.println(customers[i]);
+           i++;
+       }
+       return customers;
+
     }
 }

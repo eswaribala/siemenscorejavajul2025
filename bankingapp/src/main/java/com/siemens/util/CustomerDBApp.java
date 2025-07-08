@@ -12,6 +12,7 @@ public class CustomerDBApp {
         Faker faker=new Faker();
         try {
             CustomerDao customerDao = new CustomerDaoImpl();
+            //insert operation
             Customer customer = new Customer(
                     faker.name().firstName(),
                     faker.name().lastName(),
@@ -24,6 +25,9 @@ public class CustomerDBApp {
               System.out.println("Customer saved successfully");
           else
               System.out.println("Customer not saved");
+          for(Customer c : customerDao.getAllCustomers())
+              System.out.println(c);
+
 
         }catch (ClassNotFoundException | SQLException ex){
             System.out.println(ex.getMessage());
