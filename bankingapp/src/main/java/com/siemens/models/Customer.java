@@ -1,26 +1,30 @@
 package com.siemens.models;
 import com.github.javafaker.Faker;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
+
+import java.lang.annotation.Inherited;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @ToString
+@SuperBuilder
 public class Customer {
     //account no is constant
-    private final long AccountNumber=new Faker().random().nextInt(10000000,99999999);
+    protected final long AccountNumber=new Faker().random().nextInt(10000000,99999999);
     //instance variable-- any variable declared inside the class-- field
-    private String firstName;
-    private String lastName;
-    private String middleName;
-    private String email;
+    protected String firstName;
+    protected String lastName;
+    protected String middleName;
+    protected String email;
     @Setter
-    private String contactNo;
+    protected String contactNo;
     @Setter
-    private String password;
+    protected String password;
     @Setter
-    private Address address;
-    private boolean active;
+    protected Address address;
+    protected boolean active;
     //method area
     private static float roi;
 
