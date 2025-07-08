@@ -11,7 +11,7 @@ public class MySQLHelper {
     private static DriverManager driverManager;
 
 
-    public static Connection getConnectionUrl() throws ClassNotFoundException, SQLException {
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
          resourceBundle = ResourceBundle.getBundle("db");
         String url=resourceBundle.getString("url");
         String username=resourceBundle.getString("userName");
