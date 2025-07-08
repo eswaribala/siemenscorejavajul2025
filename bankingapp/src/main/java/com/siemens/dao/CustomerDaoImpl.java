@@ -46,12 +46,48 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public Customer updateCustomer(long accountNumber, String email, String password) {
-        return null;
+    public Customer updateCustomer(long accountNumber, String email, String password) throws SQLException {
+        String query = resourceBundle.getString("updatecustomer");
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, email);
+        preparedStatement.setString(2, password);
+        preparedStatement.setLong(3, accountNumber);
+        int rows = preparedStatement.executeUpdate();
+        if (rows > 0) {
+            query = resourceBundle.getString("selectcustomeraccountno");
+            preparedStatement = connection.prepareStatement(query);
+            System.out.println(accountNumber);
+            preparedStatement.setLong(1, accountNumber);
+            resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            System.out.println(resultSet.getLong("account_number"));
+            System.out.println(resultSet.getLong("account_number"));
+            Customer customer = new Customer(
+                    resultSet.getString("first_name"),
+                    resultSet.getString("last_name"),
+                    resultSet.getString("middle_name"),
+                    resultSet.getString("email"),
+                    resultSet.getString("password"),
+                    resultSet.getString("contact_no"),
+                    null,
+                    resultSet.getBoolean("active")
+            );
+            return customer;
+        }else
+            return null;
+
+
     }
 
     @Override
-    public void deleteCustomer(long accountNumber) {
+    public boolean deleteCustomer(long accountNumber) throws SQLException {
+        String query=resourceBundle.getString("deletecustomer");
+        preparedStatement=connection.prepareStatement(query);
+        System.out.println(accountNumber);
+        preparedStatement.setLong(1,accountNumber);
+        int rows=preparedStatement.executeUpdate();
+        return rows>0;
+
 
     }
 
