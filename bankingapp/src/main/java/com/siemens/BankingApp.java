@@ -72,8 +72,9 @@ public class BankingApp {
                 faker.internet().password(),
                 null, faker.bool().bool());
 
+
        //anonymous class
-        Comparator comparator=new Comparator<Customer>(){
+        Comparator<Customer> comparator=new Comparator<Customer>(){
             @Override
             public int compare(Customer o1, Customer o2) {
                 return o1.getFirstName().compareTo(o2.getFirstName());
