@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Data
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class Individual extends Customer{
     private LocalDate dob;
     private Gender gender;
