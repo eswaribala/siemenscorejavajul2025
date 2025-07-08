@@ -2,6 +2,8 @@ package com.siemens.util;
 
 import com.github.javafaker.Faker;
 
+import java.util.StringTokenizer;
+
 public class StringTokenizerDemo {
     public static void main(String[] args) {
         Faker faker=new Faker();
@@ -15,5 +17,14 @@ public class StringTokenizerDemo {
         }
 
         System.out.println(sb);
+
+        System.out.println("Only the first line..........");
+        StringTokenizer st=new StringTokenizer(sb.toString(),"\n");
+        while(st.hasMoreTokens()){
+            String line=st.nextToken();
+            StringTokenizer st2=new StringTokenizer(line,",");
+            System.out.println("Name="+st2.nextToken());
+            System.out.println("Age="+st2.nextToken());
+        }
     }
 }
