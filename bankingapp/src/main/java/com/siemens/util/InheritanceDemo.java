@@ -1,10 +1,7 @@
 package com.siemens.util;
 
 import com.github.javafaker.Faker;
-import com.siemens.models.CompanyType;
-import com.siemens.models.Corporate;
-import com.siemens.models.Gender;
-import com.siemens.models.Individual;
+import com.siemens.models.*;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -36,6 +33,35 @@ public class InheritanceDemo {
                 .companyType(generateCompanyType())
                 .build();
         System.out.println(corporate);
+
+        //Runt time polymorphism
+
+        //abstract class instantiation not possible
+      /*
+       Customer customer1 = new Customer(
+                faker.name().firstName(),
+                faker.name().lastName(),
+                faker.name().username(),
+                faker.internet().emailAddress(),
+                faker.phoneNumber().phoneNumber(),
+                faker.internet().password(),
+                null, faker.bool().bool());
+       */
+        //but anonymous object
+        Customer customer = new Customer(){
+
+            @Override
+            public int generateOTP() {
+                return 0;
+            }
+        };
+
+
+
+        //Individual individual1=customer;
+        //System.out.println(individual1);
+
+
 
     }
 
