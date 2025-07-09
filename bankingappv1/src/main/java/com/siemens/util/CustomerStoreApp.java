@@ -17,6 +17,7 @@ public class CustomerStoreApp {
         for(int i=0;i<size;i++) {
             //create an object - instance
             customer = new Customer(
+                    faker.random().nextInt(100000, 1000000),
                     faker.name().firstName(),
                     faker.name().lastName(),
                     faker.name().username(),

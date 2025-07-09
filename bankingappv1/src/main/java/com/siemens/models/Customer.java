@@ -14,7 +14,7 @@ import java.lang.annotation.Inherited;
 @SuperBuilder
 public  class Customer {
     //account no is constant
-    protected final long AccountNumber=new Faker().random().nextInt(10000000,99999999);
+    protected long AccountNumber;
     //instance variable-- any variable declared inside the class-- field
     protected String firstName;
     protected String lastName;
