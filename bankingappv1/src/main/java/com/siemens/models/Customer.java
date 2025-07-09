@@ -19,6 +19,7 @@ public  class Customer {
     protected String firstName;
     protected String lastName;
     protected String middleName;
+    @Setter
     protected String email;
     @Setter
     protected String contactNo;
