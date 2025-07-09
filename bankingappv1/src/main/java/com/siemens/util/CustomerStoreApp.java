@@ -28,11 +28,12 @@ public class CustomerStoreApp {
         }
 
         //read customer details
-        Iterator<Customer> itr=customerDao.getAllCustomers().iterator();
+        Iterator<Customer> itr=customerDao.getSortedCustomers().iterator();
         while(itr.hasNext()){
             Customer c=itr.next();
             System.out.println(c.toString());
         }
+
 
 
     }

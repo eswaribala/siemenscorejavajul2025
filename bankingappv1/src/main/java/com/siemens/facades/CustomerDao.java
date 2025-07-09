@@ -12,5 +12,6 @@ public interface CustomerDao {
     boolean deleteCustomer(long accountNumber);
     Customer getCustomer(long accountNumber);
     List<Customer> getAllCustomers();
+    List<Customer> getSortedCustomers();
 
 }

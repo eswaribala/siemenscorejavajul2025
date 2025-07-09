@@ -4,6 +4,7 @@ import com.siemens.facades.CustomerDao;
 import com.siemens.models.Customer;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class CustomerDaoImpl implements CustomerDao {
@@ -45,4 +46,12 @@ public class CustomerDaoImpl implements CustomerDao {
     public List<Customer> getAllCustomers() {
         return customers;
     }
+
+    @Override
+    public List<Customer> getSortedCustomers() {
+        return customers.stream()
+                .sorted(Comparator.comparing(Customer::getFirstName))
+                .toList();
+    }
+
 }
