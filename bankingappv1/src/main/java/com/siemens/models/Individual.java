@@ -18,7 +18,7 @@ public class Individual extends Customer{
     private LocalDate dob;
     private Gender gender;
 
-    public void setDob(LocalDate dob) {
+    public void setDob(LocalDate dob) throws AgeException {
         long age = ChronoUnit.YEARS.between(dob,LocalDate.now());
         if(age<18)
             throw new AgeException("Age should be greater than 18");

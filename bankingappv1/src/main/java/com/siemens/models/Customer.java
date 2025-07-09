@@ -30,7 +30,7 @@ public  class Customer {
     //method area
     private static float roi;
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName) throws FirstNameException {
         String pattern = "^[a-zA-Z]{1,20}$";
         if(!firstName.matches(pattern)){
             throw new FirstNameException(
@@ -39,7 +39,7 @@ public  class Customer {
           this.firstName = firstName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName) throws LastNameException {
         String pattern = "^[a-zA-Z]{1,10}$";
         if(!lastName.matches(pattern)){
             throw new LastNameException(
