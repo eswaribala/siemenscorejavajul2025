@@ -50,6 +50,8 @@ public class HashtableDemo {
         if(hashtable.containsKey(key)){
             Customer customer=hashtable.get(key);
             customer.setEmail("Param@gmail.com");
+            //updating the hashtable
+            hashtable.put(key,customer);
             System.out.println(customer);
         }else{
             System.out.println("Key not found");

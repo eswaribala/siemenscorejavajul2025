@@ -26,6 +26,7 @@ public class CustomerDaoImpl implements CustomerDao {
         Customer customer = getCustomer(accountNumber);
         customer.setPassword(password);
         customer.setEmail(email);
+        customers.set(customers.indexOf(customer),customer);
         return customer;
     }
 
