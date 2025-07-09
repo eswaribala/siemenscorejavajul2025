@@ -6,6 +6,7 @@ import com.siemens.models.Customer;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Scanner;
 
 public class HashtableDemo {
     public static void main(String[] args) {
@@ -28,6 +29,9 @@ public class HashtableDemo {
                     null, faker.bool().bool()));
         }
 
+
+
+
         Iterator<Map.Entry<Long,Customer>> itr=hashtable.entrySet().iterator();
         Map.Entry<Long,Customer> mapEntry=null;
          while(itr.hasNext()){
@@ -37,6 +41,20 @@ public class HashtableDemo {
          System.out.println("---------------------------Using Lambda-------------------------");
          //alternative
         hashtable.forEach((k,v)->System.out.println(k+","+v.toString()));
+
+        //search
+
+        System.out.println("Enter Key to search:");
+        Scanner scanner=new Scanner(System.in);
+        long key=scanner.nextLong();
+        if(hashtable.containsKey(key)){
+            Customer customer=hashtable.get(key);
+            customer.setEmail("Param@gmail.com");
+            System.out.println(customer);
+        }else{
+            System.out.println("Key not found");
+        }
+
 
     }
 }
