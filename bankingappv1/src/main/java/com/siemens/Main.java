@@ -7,6 +7,7 @@ import com.siemens.exceptions.LastNameException;
 import com.siemens.models.Gender;
 import com.siemens.models.Individual;
 
+import java.io.IOException;
 import java.time.ZoneId;
 
 public class Main {
@@ -25,7 +26,7 @@ public class Main {
             individual.setDob(faker.date().birthday(10, 15).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             individual.setFirstName(faker.name().firstName());
             individual.setLastName(faker.name().lastName());
-        }catch (FirstNameException| LastNameException| AgeException e){
+        }catch (FirstNameException | LastNameException | AgeException | IOException e){
             System.out.println(e.getMessage());
         }
         System.out.println(individual);
