@@ -17,7 +17,7 @@ import java.util.Comparator;
 public class BankingApp {
     public static void main(String[] args) {
 
-        //System.out.println(args[0]+","+args[1]);
+        System.out.println(args[0]+","+args[1]);
         //local variable--declared inside the method
         Faker faker=new Faker();
         for(int i=0;i<100;i++) {
