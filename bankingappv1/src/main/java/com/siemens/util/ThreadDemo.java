@@ -27,8 +27,10 @@ public class ThreadDemo {
         //synchronization
         Account account=new Account(1000);
         //multiple thread
-        new AccountThread(account,"Primary",500);
-        new AccountThread(account,"Secondary",750);
+        new AccountThread(account,"Primary",750);
+        new AccountThread(account,"Secondary1",500);
+        new AccountThread(account,"Secondary2",1500);
+        new AccountThread(account,"Secondary3",2000);
 
 
     }
