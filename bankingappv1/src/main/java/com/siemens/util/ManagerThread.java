@@ -26,7 +26,7 @@ public class ManagerThread extends Individual implements Runnable {
                  System.out.println(customer);
 
              } catch (InterruptedException e) {
-                 e.printStackTrace();
+                break;
              }
          }
     }
