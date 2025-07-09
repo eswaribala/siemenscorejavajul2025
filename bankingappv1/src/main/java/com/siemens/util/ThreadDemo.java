@@ -22,7 +22,7 @@ public class ThreadDemo {
         if(input.equals("q")){
             thread.interrupt();
         }
-*/
+
 
         //synchronization
         Account account=new Account(1000);
@@ -31,7 +31,14 @@ public class ThreadDemo {
         new AccountThread(account,"Secondary1",500);
         new AccountThread(account,"Secondary2",1500);
         new AccountThread(account,"Secondary3",2000);
+*/
 
+        //interthread communication
+        ProducerConsumerThread producerConsumerThread = new ProducerConsumerThread();
+        Thread producerThread = new Thread(producerConsumerThread,"Producer");
+        Thread consumerThread = new Thread(producerConsumerThread,"Consumer");
+        producerThread.start();
+        consumerThread.start();
 
     }
 }
